@@ -331,8 +331,7 @@ First you'll add the code, and then we'll review the new parts.
 module.exports = function(ctx, cb) {
   var slack = require("slack-notify")(ctx.secrets.SLACK_URL);
   var body = ctx.body;
-  var attempts;
-  
+
   if (ctx.data.showstats === "true") {
     return getStats();
   }
@@ -352,32 +351,39 @@ module.exports = function(ctx, cb) {
   }
 
   function incrementCounter() {
-    ctx.storage.get(function(error, data){
-      if (data === undefined) {
-        data={};
+    var attempts = 3;
+    tryIncrementCounter(attempts);
+  }
+  function tryIncrementCounter(attempsLeft, error) {
+    if (attempsLeft <= 0) {
+      return cb(error || "no more attemps");
+    }
+
+    ctx.storage.get(function(error, data) {
+      if (error) {
+        // treat read errors as transient and retriable
+        return tryIncrementCounter(error, attempsLeft - 1);
       }
+
+      if (data === undefined) {
+        data = {};
+      }
+
       var repoName = body.repository.full_name
       data[repoName] === undefined ? data[repoName] = 1 : data[repoName]++;
-      attempts = 3 ;
       ctx.storage.set(data, function(error) {
-        setStorage(error, data);
+        if (error) {
+          if (error.code === 409) {
+            return tryIncrementCounter(error, attempsLeft - 1);
+          } else {
+            return cb(error);
+          }
+        }
+        cb();
       });
     });
   }
-  
-  function setStorage(error,data) {
-    if(error) {
-      if (error.code == 409 && attempts--) {
-        data.counter = Math.max(data.counter, error.conflict.counter) + 1;
-        return ctx.storage.set(data, setStorage);
-      }
-      else {
-        return cb(error);
-      }
-    }
-    cb();
-  }
-  
+
   function getStats() {
     ctx.storage.get(function(error,data){
       cb(null, data); 
