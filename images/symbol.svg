@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup">
+            <path d="M150,150 L0,150 L0,0 L150,0 L150,150 Z" id="Fill-1" fill="#5F3237" sketch:type="MSShapeGroup"></path>
+            <path d="M150,150 L30,150 L30,30 L150,30 L150,150 Z" id="Fill-2" fill="#E56E62" sketch:type="MSShapeGroup"></path>
+            <path d="M120,120 L30,120 L30,30 L120,30 L120,120 Z" id="Fill-3" fill="#ED955B" sketch:type="MSShapeGroup"></path>
+            <path d="M120,120 L60,120 L60,60 L120,60 L120,120 Z" id="Fill-4" fill="#F9E862" sketch:type="MSShapeGroup"></path>
+            <path d="M90,90 L60,90 L60,60 L90,60 L90,90 Z" id="Fill-5" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
