@@ -34,7 +34,19 @@ This workshop assumes you have the following ready to go:
 - A Text Editor
   - This workshop shows use of [Visual Studio Code](https://code.visualstudio.com/)
 
-## Getting Started
+## Workshop Modules
+
+1. [Hello Editor](modules/hello-editor.md)
+1. [Hello CLI](modules/hello-cli.md)
+1. [Programming Models](modules/programming-models.md)
+1. [NPM Modules](modules/npm-modules.md)
+1. [Secrets](modules/secrets.md)
+1. [Storage](modules/storage.md)
+
+
+----
+
+### Contributing to this workshop
 
 - Fork the repository.
 - Clone your forked repository.
@@ -53,12 +65,3 @@ this step*.
 
 **Note:** Feel free to edit and send pull requests to update/add more modules.
 
-
-## Workshop Modules
-
-1. [Hello Editor](modules/hello-editor.md)
-1. [Hello CLI](modules/hello-cli.md)
-1. [Programming Models](modules/programming-models.md)
-1. [NPM Modules](modules/npm-modules.md)
-1. [Secrets](modules/secrets.md)
-1. [Storage](modules/storage.md)
