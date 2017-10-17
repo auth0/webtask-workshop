@@ -38,10 +38,18 @@ This workshop assumes you have the following ready to go:
 
 - Fork the repository.
 - Clone your forked repository.
-- `npm install -g hads`
-- `hads . -o`
 
-Using [hads](https://github.com/sinedied/hads) allows you to navigate around the workshop content, edit it to add your own notes and offers a easy search bar to go back and look something up. 
+-----
+__OPTIONAL__ A tip for those who do *not* have an in-IDE-markdown-viewer. 
+Using [hads](https://github.com/sinedied/hads) allows you to navigate around the
+workshop content, edit it to add your own notes and offers a easy search bar to
+go back and look something up. If you already have a markdown viewer, *then skip
+this step*.
+
+- `npm install -g hads`
+- `hads . -o` Display project documentation in browser at url http://localhost:4040
+
+-----
 
 **Note:** Feel free to edit and send pull requests to update/add more modules.
 
