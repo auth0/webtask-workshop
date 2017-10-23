@@ -29,17 +29,95 @@ Notice the two params of the function. `context` is the webtask Context object. 
 
 ## Run the Webtask
 
-- Click on the `play` button which will bring up the runner. 
-- Click `Run`. 
+- Click the `play` icon which will bring up the runner. 
+- Click the little gear in the uppper right, then the blue `Run` button. 
  
 ![Run](../images/wt-editor-run.gif)
 
-You'll see you webtask is instantly executed and the message `{"hello":"Anonymous"}` is returned in the Runner window.
+See that webtask is instantly executed and (as of 10/17/2017 ) the following is returned in the Runner response frame.
+
+``` 
+{
+  "code": 500,
+  "error": "Script generated an unhandled synchronous exception.",
+  "details": "TypeError: Cannot read property 'name' of undefined",
+  "name": "TypeError",
+  "message": "Cannot read property 'name' of undefined",
+  "stack": "TypeError: Cannot read property 'name' of undefined\n    at module.exports (/data/io/58fa2909141e408eb0e57579a9cfea56/webtask.js:2:33)\n    at Async.series.Request.get.Async.series.Async.forEachOf.createError.code (/data/sandbox/lib/sandbox.js:808:33)\n    at /data/sandbox/node_modules/async/dist/async.js:3853:24\n    at replenish (/data/sandbox/node_modules/async/dist/async.js:946:17)\n    at iterateeCallback (/data/sandbox/node_modules/async/dist/async.js:931:17)\n    at /data/sandbox/node_modules/async/dist/async.js:906:16\n    at /data/sandbox/node_modules/async/dist/async.js:3858:13\n    at /data/sandbox/lib/sandbox.js:882:24\n    at invokeCallback (/data/sandbox/node_modules/raw-body/index.js:224:16)\n    at done (/data/sandbox/node_modules/raw-body/index.js:213:7)"
+}
+```
+Doing a little debugging, change line 2 in the editor:
+
+__from__: `cb(null, { hello: context.body.name || 'Anonymous' });
+`
+
+__to__: `cb(null, { hello: context || 'Anonymous' });
+`
+
+Click the save to disk icon or `ctrl+s`, once saved the `gear` icon and the blue `run` button.
+
+In the Runner window response frame see the contents of `context`:
+
+```
+{
+  "hello": {
+    "meta": {
+      "wt-editor": "https://cdn.auth0.com/webtask-editor/editors/1/function-editor.js",
+      "wt-editor-icon": "wt-icon-717"
+    },
+    "storage": {
+      "timeout": 10000,
+      "token": "eyJhbGciOiJIUzI1NiIsImtpZCI6IjIifQ.eyJqdGkiOiI2NTQzNzUxOTlkMjg0YzIzODQ3Y2M3NTJiMjE4NDIyNyIsImlhdCI6MTUwODI3MjExMSwiY2EiOlsiOTAwNzMzNGRiMDhjNGQ2M2E0MTNjZGFmM2YzYjYxNGMiLCI1ZmUxMDZmZjY3MDE0YWEwYWFlNGFmMGI0ZWFlY2Q2MiJdLCJkZCI6MCwidGVuIjoid3QtYzE3NWY3NDJmMzk2MzcwZGQzNzM4NDg0ZjQ5OWUwYWUtMCIsImp0biI6Ind0MSIsInBiIjoyLCJ1cmwiOiJ3ZWJ0YXNrOi8vbG9jYWxob3N0L2FwaS9kYXRhL2NvZGUvd3QtYzE3NWY3NDJmMzk2MzcwZGQzNzM4NDg0ZjQ5OWUwYWUtMCUyRnd0MSJ9.wfEZLPQOqtwolrDeL90ISmMKyt36SQvWSLGEqQbelo0"
+    },
+    "data": {},
+    "params": {},
+    "query": {},
+    "secrets": {},
+    "headers": {
+      "host": "wt-c175f742f396370dd3738484f499e0ae-0.run.webtask.io",
+      "accept": "application/json, text/plain, */*",
+      "accept-encoding": "gzip, deflate, br",
+      "accept-language": "en-US,en;q=0.5",
+      "dnt": "1",
+      "origin": "https://webtask.io",
+      "referer": "https://webtask.io/make",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0",
+      "x-forwarded-for": "131.191.55.208,::ffff:172.31.4.35",
+      "x-forwarded-port": "443,8721",
+      "x-forwarded-proto": "https,http",
+      "accept-version": "2.0.0",
+      "x-wt-params": "eyJyZXFfaWQiOiIxNTA4MjcyMjY1NjMzLjkyNzc3IiwiY29udGFpbmVyIjoid3QtYzE3NWY3NDJmMzk2MzcwZGQzNzM4NDg0ZjQ5OWUwYWUtMCIsInJlc29sdmVkX21vZHVsZXMiOm51bGwsInVybF9mb3JtYXQiOjMsInVybCI6IndlYnRhc2s6Ly9sb2NhbGhvc3QvYXBpL2RhdGEvY29kZS93dC1jMTc1Zjc0MmYzOTYzNzBkZDM3Mzg0ODRmNDk5ZTBhZS0wJTJGd3QxIiwicGIiOjIsImp0aSI6IjY1NDM3NTE5OWQyODRjMjM4NDdjYzc1MmIyMTg0MjI3IiwianRuIjoid3QxIiwidG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0ltdHBaQ0k2SWpJaWZRLmV5SnFkR2tpT2lJMk5UUXpOelV4T1Rsa01qZzBZekl6T0RRM1kyTTNOVEppTWpFNE5ESXlOeUlzSW1saGRDSTZNVFV3T0RJM01qRXhNU3dpWTJFaU9sc2lPVEF3TnpNek5HUmlNRGhqTkdRMk0yRTBNVE5qWkdGbU0yWXpZall4TkdNaUxDSTFabVV4TURabVpqWTNNREUwWVdFd1lXRmxOR0ZtTUdJMFpXRmxZMlEyTWlKZExDSmtaQ0k2TUN3aWRHVnVJam9pZDNRdFl6RTNOV1kzTkRKbU16azJNemN3WkdRek56TTRORGcwWmpRNU9XVXdZV1V0TUNJc0ltcDBiaUk2SW5kME1TSXNJbkJpSWpveUxDSjFjbXdpT2lKM1pXSjBZWE5yT2k4dmJHOWpZV3hvYjNOMEwyRndhUzlrWVhSaEwyTnZaR1V2ZDNRdFl6RTNOV1kzTkRKbU16azJNemN3WkdRek56TTRORGcwWmpRNU9XVXdZV1V0TUNVeVJuZDBNU0o5LndmRVpMUFFPcXR3b2xyRGVMOTBJU21NS3l0MzZTUXZXU0xHRXFRYmVsbzAifQ==",
+      "connection": "close"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsImtpZCI6IjIifQ.eyJqdGkiOiI2NTQzNzUxOTlkMjg0YzIzODQ3Y2M3NTJiMjE4NDIyNyIsImlhdCI6MTUwODI3MjExMSwiY2EiOlsiOTAwNzMzNGRiMDhjNGQ2M2E0MTNjZGFmM2YzYjYxNGMiLCI1ZmUxMDZmZjY3MDE0YWEwYWFlNGFmMGI0ZWFlY2Q2MiJdLCJkZCI6MCwidGVuIjoid3QtYzE3NWY3NDJmMzk2MzcwZGQzNzM4NDg0ZjQ5OWUwYWUtMCIsImp0biI6Ind0MSIsInBiIjoyLCJ1cmwiOiJ3ZWJ0YXNrOi8vbG9jYWxob3N0L2FwaS9kYXRhL2NvZGUvd3QtYzE3NWY3NDJmMzk2MzcwZGQzNzM4NDg0ZjQ5OWUwYWUtMCUyRnd0MSJ9.wfEZLPQOqtwolrDeL90ISmMKyt36SQvWSLGEqQbelo0",
+    "id": "1508272265633.92777"
+  }
+}
+```
+
 
  - Click on the Gear icon in the upper right of the runner.
  - Click on URL Params(0) and you will get an area to enter query string key/value pairs. 
  - Put the parameter `name` and then your name for the value.
  - Click `Run`.
+
+ In the response section see inside `context`:
+```
+"data": {
+      "name": "nd"
+    }
+```
+Now the properties are known to query for in `context`, make the following change to line 2 
+in your editor:
+
+__from__: `cb(null, { hello: context || 'Anonymous' });
+`
+
+__to__: `cb(null, { hello: context.data.name || 'Anonymous' });
+`
+
+Click the save to disk icon or `ctrl+s`, once saved the `gear` icon and the blue `run` button.
+
 
 ![Run](../images/wt-editor-run2.gif)
 

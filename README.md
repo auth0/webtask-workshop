@@ -30,7 +30,7 @@ This workshop assumes you have the following ready to go:
 - A [Slack](https://slack.com/) account with administrative privileges
   - Feel free to create a new one just for this workshop 
   - If attending a workshop where there is a leader, one will be provided
-- [Node.js](https://nodejs.org/en/) installed (v6 is perfered, some features currently unstable in v8)
+- [Node.js](https://nodejs.org/en/) installed
 - A Text Editor
   - This workshop shows use of [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -50,7 +50,12 @@ Using [hads](https://github.com/sinedied/hads) allows you to navigate around the
 
 1. [Hello Editor](modules/hello-editor.md) - 20 Minutes
 1. [Hello CLI](modules/hello-cli.md) - 15 Minutes
-1. [Programming Models](modules/programming-models.md) - 5 Minutes
 1. [NPM Modules](modules/npm-modules.md) - 15 Minutes
 1. [Secrets](modules/secrets.md) - 20 Minutes
-1. [Storage](modules/storage.md)
+1. [Storage](modules/storage.md) - 20 Minutes
+1. [Programming Models](modules/programming-models.md) - 5 Minutes
+1. [Local Execution](modules/local-execution.md)
+1. [Local Debugging](modules/local-debugging.md)
+1. Middleware
+1. Custom Programming Models
+1. Extend

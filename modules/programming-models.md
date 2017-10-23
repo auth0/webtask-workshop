@@ -79,4 +79,4 @@ As you can see, you now have a webtask that returns an HTML page.
 
 Using the raw request and response opens up a number of possiblities, you can write micro-apis, and you can return other kinds of rich content like a PDF or a graphic. You can even build `Express` tasks, something which you'll see later.
 
-Next, let's see how we can take advandate of node modules hosted on [NPM](npm-modules.md).
+Next, let's see how we can take advantage of node modules hosted on [NPM](npm-modules.md).
