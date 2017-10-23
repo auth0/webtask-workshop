@@ -122,11 +122,11 @@ This will create a new webtask with dependencies on both of our required modules
 
 ## Node Modules via Package.json
 
-When using the `wt update` command to update an existing webtask, existing dependencies will be maintaned unless you use the `--dependency` parameter. If you are, you must declare all the dependencies for the webtask. As you can imagine, that could be come burdensome beyond a couple dependencies.
+When using the `wt update` command to update an existing webtask, existing dependencies will be maintaned unless you use the `--dependency` parameter. If you are, you must declare all the dependencies for the webtask. As you can imagine, that could become burdensome beyond a couple dependencies.
 
-Luckily, the webtask cli has built in support for `project.json` files. If it finds one, it will assume all the defined dependencies are needed by the webtask and make them available.
+Luckily, the webtask cli has built in support for `package.json` files. If it finds one, it will assume all the defined dependencies are needed by the webtask and make them available.
 
-Let's create a project.json for our wt5 webtask and then update it.
+Let's create a package.json for our wt5 webtask and then update it.
 
 - Execute the command `npm init`.
 - Accept the defaults by hitting `enter` until complete.

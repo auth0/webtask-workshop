@@ -8,7 +8,7 @@ Auth0 Webtasks lets you store this kind of information separately from the code 
 
 You'll now see how you can use secrets to connecting your webtask to Slack. Before you move forward the first thing you need is an incoming Slack URL. 
 
-- Naviate to [Incoming Webhooks](https://my.slack.com/services/new/incoming-webhook/) on Slack
+- Navigate to [Incoming Webhooks](https://my.slack.com/services/new/incoming-webhook/) on Slack
 - Select #general from the Post to Channel drop down
 - Click the Add Incoming WebHooks integration button
 - Copy the Webhook URL
