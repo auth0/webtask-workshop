@@ -6,7 +6,14 @@ For the slack example, you can imagine using storage to keep a counter of issues
 
 You'll change the task to persist a counter for each repo, and you'll add logic to allow retrieving the stats.
 
+## Updating Webtask to Use Storage from the Editor
+
 First you'll add the code, and then we'll review the new parts.
+
+- Open your browser to [https://webtask.io/edit/wt6](https://webtask.io/edit/wt6).
+  - Alternatively, you can use `wt edit wt6` from the command line.
+- Modify the webtask code with the following logic.
+- Click `save`.
 
 ```javascript
 module.exports = function(ctx, cb) {
@@ -77,3 +84,35 @@ Now to what the new code does:
  * The data object will be persisted using the `set` function on Storage.
  * If there is a 409 conflict (meaning another instance of the task updated storage AFTER this instance read the data), then it will resolve the conflict by choosing the greatest number between the current value and the conflicting value. It will then add 1 and try again.
  * After 3 total attempts to resolve it will return an error.
+
+## Testing Storage Implementation
+
+Let's test this functionality out!
+
+- Open your browser to [https://webtask.io/edit/wt6](https://webtask.io/edit/wt6).
+  - Alternatively, you can use `wt edit wt6` from the command line.
+- Open the **Logs** panel.
+- Open a new tab in your browser and navigate to your repository.
+- Add a new issue.
+- Verify "issue created" is output to the the logs console.
+- Click the wrench icon and select "Storage".
+
+You should now see a json object containing a property named based on your repository with a value of **1**. You can also fetch the values stored in storage via the API directly.
+
+### Fetching Storage values using curl
+
+Try executing this command from bash:
+
+```bash
+curl https://webtask.it.auth0.com/api/webtask/$(wt inspect wt6 --output json | jq .ten -r)/wt6/data \
+ -H "Authorization: Bearer $(wt profile get --field token)"
+```
+
+This command uses curl to hit the API endpoint for your container to fetch your stored data. It also uses the wt-cli to retrieve your container name and profile token to authorize the request.
+
+## Summary
+
+You have just learned how to use the Storage api to persist small bits of state between Webtask executions. While not intended to be durable long term data persistance, it is useful to gather small bits of data across multiple executions of your webtasks.
+
+Next up you will learn about the built in [Programming Models](programming-models.md).
+ 

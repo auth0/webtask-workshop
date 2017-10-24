@@ -94,8 +94,8 @@ You can also easily specify secrets when using the wt-cli to `create` webtasks. 
 - Using your favorite text editor, paste the Slack webtask code.
 - Save the file.
 - Bring up your console.
-- Navigate to the directory containing the `wt6.js` file.
-- Execute the command `wt create wt7.js --secret SLACK_URL=http://www.wrong.url.com`
+- Navigate to the directory containing the `wt7.js` file.
+- Execute the command `wt create wt7.js --name wt7 --secret SLACK_URL=http://www.wrong.url.com`
 
 ![Add secret](../images/wt-cli-add-secret.gif) 
 

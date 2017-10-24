@@ -6,7 +6,7 @@ Let's jump in and create your first webtask.
 
 - Open your browser to [https://webtask.io/make](https://webtask.io/make)
 - This will give you a prompt to log in. 
-- Choose any of the credentials listed.
+- Choose any of the authentication options listed.
 
 ![wt editor login](../images/wt-editor-login.png)
 
@@ -58,7 +58,7 @@ Notice the realtime log viewer shows each time the task is executed and how the 
 ## Write Logs
 
 - Check the tick box in the logs viewer labed `autoscroll`.
-- Modify the code to write the `data` to the console using `console.log`.
+- Modify the code to write the `query` to the console using `console.log`.
 - Click on the `save` button which will save your code changes.
 - Click on the Gear icon in the upper right hand corner of the runner.
 - Click `Run`.
@@ -67,7 +67,7 @@ Your code should look like this:
 
 ```javascript
 module.exports = function(context, cb) {
-  console.log(context.data); 
+  console.log(context.query); 
   cb(null, { hello: context.data.name || 'Anonymous' });
 };
 ```
@@ -122,7 +122,7 @@ Your code should look like this:
 ```javascript
 module.exports = function(ctx, cb) {
   console.log("Webhook Invoked");
-  cb(null, { hello: ctx.data.name || 'Anonymous' });
+  cb(null, { hello: ctx.query.name || 'Anonymous' });
 };
 ```
 
@@ -164,6 +164,9 @@ To open the task you created before, use this url: [https://webtask.io/edit/wt1]
 - On the left hand navigation, Click the `explore` icon which will display a list of all tasks.
 - Click the `trash` icon next to the task you want to destroy.
 - Click the `yes` button to confirm.
+
+**Note:** Don't actually remove your wt1 webtask, we will be continuing to use it later. 
+
 
 ![List webhook](../images/wt-editor-delete.gif)
 

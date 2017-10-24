@@ -36,12 +36,17 @@ This workshop assumes you have the following ready to go:
 
 ## Workshop Modules
 
-1. [Hello Editor](modules/hello-editor.md)
-1. [Hello CLI](modules/hello-cli.md)
-1. [Programming Models](modules/programming-models.md)
-1. [NPM Modules](modules/npm-modules.md)
-1. [Secrets](modules/secrets.md)
-1. [Storage](modules/storage.md)
+1. [Hello Editor](modules/hello-editor.md) - 20 Minutes
+1. [Hello CLI](modules/hello-cli.md) - 15 Minutes
+1. [NPM Modules](modules/npm-modules.md) - 15 Minutes
+1. [Secrets](modules/secrets.md) - 20 Minutes
+1. [Storage](modules/storage.md) - 20 Minutes
+1. [Programming Models](modules/programming-models.md) - 5 Minutes
+1. [Local Execution](modules/local-execution.md)
+1. [Local Debugging](modules/local-debugging.md)
+1. [Middleware](modules/middleware.md)
+1. Custom Programming Models
+1. Extend
 
 
 ----
@@ -64,16 +69,3 @@ this step*.
 -----
 
 **Note:** Feel free to edit and send pull requests to update/add more modules.
-
-1. [Hello Editor](modules/hello-editor.md) - 20 Minutes
-1. [Hello CLI](modules/hello-cli.md) - 15 Minutes
-1. [NPM Modules](modules/npm-modules.md) - 15 Minutes
-1. [Secrets](modules/secrets.md) - 20 Minutes
-1. [Storage](modules/storage.md) - 20 Minutes
-1. [Programming Models](modules/programming-models.md) - 5 Minutes
-1. [Local Execution](modules/local-execution.md)
-1. [Local Debugging](modules/local-debugging.md)
-1. Middleware
-1. Custom Programming Models
-1. Extend
-
