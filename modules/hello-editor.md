@@ -153,7 +153,7 @@ To open the task you created before, use this url: [https://webtask.io/edit/wt1]
 
 ## Listing Tasks
 
-- Press `<CMD> + p` (Windows Key on Windows) which will display a list of tasks. 
+- Press `<CMD> + p` (Control Key on Windows) which will display a list of tasks. 
 - On the list displayed type `wt1` into the search bar to filter.
 - Hit `enter` to open the wt1 task.
  
