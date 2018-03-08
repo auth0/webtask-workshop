@@ -1,6 +1,6 @@
 # Storage
 
-Sometimes webtasks need to persist state. Auth0 Webtasks includes a built in [storage API](https://webtask.io/docs/storage) that you can use within your tasks. You can persist and retreive a single JSON object in the store that is <= 500KB in size. Storage also supports concurrency, to prevent loss of data. It's use is primarly to maintain lightweight and transient state. To access storage you use the `storage` object on the `context`. 
+Sometimes webtasks need to persist state. Auth0 Webtasks includes a built in [storage API](https://webtask.io/docs/storage) that you can use within your tasks. You can persist and retreive a single JSON object in the store that is <= 500KB in size. Storage also supports concurrency, to prevent loss of data. Its use is primarly to maintain lightweight and transient state. To access storage you use the `storage` object on `context`. 
 
 For the slack example, you can imagine using storage to keep a counter of issues created for each repo. This is a good fit as the number of repos should be relatively small.
 
