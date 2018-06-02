@@ -57,7 +57,7 @@ Notice the realtime log viewer shows each time the task is executed and how the 
 
 ## Write Logs
 
-- Check the tick box in the logs viewer labed `autoscroll`.
+- Check the tick box in the logs viewer labeled `autoscroll`.
 - Modify the code to write the `query` to the console using `console.log`.
 - Click on the `save` button which will save your code changes.
 - Click on the Gear icon in the upper right hand corner of the runner.
