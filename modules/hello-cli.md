@@ -110,6 +110,6 @@ When you do you will see the realtime logs are displayed.
 ## Summary
 
 
-You've just installed the Auth0 Webtasks CLI seen the basics of using it to create your second and third webtask. You've then seen how to list all of your webtask in the console, bring up the web editor to edit a task, serve a task locally, create a new webtask from the console and monitor logs realtime. Wasn't that awesome? We are just getting started. 
+You've just installed the Auth0 Webtask CLI and seen the basics of using it to create your second and third webtasks. You've then seen how to list all of your webtasks in the console, bring up the web editor to edit a task, serve a task locally, create a new webtask from the console and monitor logs in realtime. Wasn't that awesome? We are just getting started. 
 
 Next, let's see how we can take advantage of node modules hosted on [NPM](npm-modules.md).
