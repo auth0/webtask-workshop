@@ -2,11 +2,11 @@
 
 A very common use case for Auth0 Webtasks is to be a bridge between another service. For example, you might want to send a notification to a Slack channel whenever an issue is filed in a Github repo. Using Auth0 Webtasks provides a real easy way to handle this kind of logic. 
 
-In order to send to Slack though, you will need to provide an SLACK URL. This URL is a secret, similar to an API key that would use to talk to a service like Twilio, or it may be connection string information to connect to a database. Generally you don't want this kind of information sitting in the code. For one thing it is a security risk to have keys loosely exposed in text. Another is it makes the code hard to reuse and test.
+In order to send to Slack though, you will need to provide a SLACK URL. This URL is a secret, similar to an API key that you'd use to talk to a service like Twilio, or it may be connection string information to connect to a database. Generally you don't want this kind of information sitting in the code. For one thing it is a security risk to have keys loosely exposed in text. Another is it makes the code hard to reuse and test.
 
-Auth0 Webtasks lets you store this kind of information separately from the code in a secure manner using [Secrets](https://webtask.io/docs/editor/secrets). Each webtask can have one or more secrets which are then accessible off of the `secrets` param of the context object. Secrets are useful for more than just secure keys and connection strings, you can use them for general configuration as well.
+Auth0 Webtasks let you store this kind of information separately from the code in a secure manner using [Secrets](https://webtask.io/docs/editor/secrets). Each webtask can have one or more secrets which are then accessible off of the `secrets` param of the context object. Secrets are useful for more than just secure keys and connection strings; you can use them for general configuration as well.
 
-You'll now see how you can use secrets to connecting your webtask to Slack. Before you move forward the first thing you need is an incoming Slack URL. 
+You'll now see how you can use secrets to connect your webtask to Slack. Before you move forward the first thing you need is an incoming Slack URL. 
 
 - Navigate to [Incoming Webhooks](https://my.slack.com/services/new/incoming-webhook/) on Slack
 - Select #general from the Post to Channel drop down
@@ -33,7 +33,7 @@ Now you'll go store the url as a Secret in a new webtask.
 
 ![Editor Add Secret](../images/wt-editor-add-secret.gif) 
 
-As mentioned earlier, secrets can be accessed of the Context object using the name. To access the `SLACK_URL` you can use the code `ctx.secrets.SLACK_URL`.
+As mentioned earlier, a secret can be accessed on the Context object using its key. To access the `SLACK_URL` you can use the code `ctx.secrets.SLACK_URL`.
 
 To put everything together you now need to add logic to your task to send to Slack whenever there is an issue. For the actual sending to Slack you're going to take advantage of a 3rd party node module, `slack-notify`.
 
