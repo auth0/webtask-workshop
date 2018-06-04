@@ -1,6 +1,6 @@
 # Storage
 
-Sometimes webtasks need to persist state. Auth0 Webtasks includes a built in [storage API](https://webtask.io/docs/storage) that you can use within your tasks. You can persist and retreive a single JSON object in the store that is <= 500KB in size. Storage also supports concurrency, to prevent loss of data. Its use is primarly to maintain lightweight and transient state. To access storage you use the `storage` object on `context`. 
+Sometimes webtasks need to persist state. Auth0 Webtasks include a built in [storage API](https://webtask.io/docs/storage) that you can use within your tasks. You can persist and retreive a single JSON object in the store that is <= 500KB in size. Storage also supports concurrency, to prevent loss of data. Its use is primarly to maintain lightweight and transient state. To access storage you use the `storage` object on `context`. 
 
 For the slack example, you can imagine using storage to keep a counter of issues created for each repo. This is a good fit as the number of repos should be relatively small.
 
@@ -46,7 +46,7 @@ module.exports = function(ctx, cb) {
       }
       var repoName = body.repository.full_name
       data[repoName] === undefined ? data[repoName] = 1 : data[repoName]++;
-      attempts = 3 ;
+      attempts = 3;
       ctx.storage.set(data, function(error) {
         setStorage(error, data);
       });
@@ -94,7 +94,7 @@ Let's test this functionality out!
 - Open the **Logs** panel.
 - Open a new tab in your browser and navigate to your repository.
 - Add a new issue.
-- Verify "issue created" is output to the the logs console.
+- Verify "issue created" is output to the logs console.
 - Click the wrench icon and select "Storage".
 
 You should now see a json object containing a property named based on your repository with a value of **1**. You can also fetch the values stored in storage via the API directly.
@@ -112,7 +112,7 @@ This command uses curl to hit the API endpoint for your container to fetch your 
 
 ## Summary
 
-You have just learned how to use the Storage api to persist small bits of state between Webtask executions. While not intended to be durable long term data persistance, it is useful to gather small bits of data across multiple executions of your webtasks.
+You have just learned how to use the Storage api to persist small bits of state between Webtask executions. While not intended to be durable long term data persistence, it is useful to gather small bits of data across multiple executions of your webtasks.
 
 Next up you will learn about the built in [Programming Models](programming-models.md).
  
