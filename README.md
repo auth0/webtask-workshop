@@ -2,7 +2,7 @@
 
 ---
 
-[Auth0 Webtasks](https://webtask.io) is a platform for easily creating a serverless HTTP Endpoint / Webhook. Auth0 Webtasks executes node.js code in a secure and safe manner. There's no servers to deploy, no tools you have to install, just code. 
+[Auth0 Webtasks](https://webtask.io) is a platform for easily creating a serverless HTTP Endpoint / Webhook. Auth0 Webtasks execute node.js code in a secure and safe manner. There's no servers to deploy, no tools you have to install, just code. 
 
 * Every webtask is an HTTP endpoint
 * Simple Node.js programming model
@@ -30,10 +30,10 @@ This workshop assumes you have the following ready to go:
   - Feel free to create a new one just for this workshop 
   - If attending a workshop where there is a leader, one will be provided
 - [Node.js](https://nodejs.org/en/) installed
-- Some of the advanced examples use [jq](https://stedolan.github.io/jq/).
+- Some of the advanced examples use [jq](https://stedolan.github.io/jq/)
 - A Text Editor
   - This workshop shows use of [Visual Studio Code](https://code.visualstudio.com/)
-- These examples assume you are using bash.
+- These examples assume you are using bash
 
 ## Workshop Modules
 
@@ -56,7 +56,7 @@ This workshop assumes you have the following ready to go:
 
 __OPTIONAL__ A tip for those who do *not* have an in-IDE-markdown-viewer. 
 Using [hads](https://github.com/sinedied/hads) allows you to navigate around the
-workshop content, edit it to add your own notes and offers a easy search bar to
+workshop content, edit it to add your own notes and offers an easy search bar to
 go back and look something up. If you already have a markdown viewer, *then skip
 this step*.
 
