@@ -4,7 +4,7 @@ We currently have a webtask that consumes a GitHub issue and formats a message t
 
 Middleware is Node.js code you control that executes right before your webtask code does. It allows you to augment the default webtask execution logic without requiring any changes in the code of your webtask.
 
-In this module, we will secure the webtask using simple bearer token authorization, then modify it to use an HMAC Digest singed token authorization all using the same webtask code.
+In this module, we will secure the webtask using simple bearer token authorization, then modify it to use an HMAC Digest signed token authorization all using the same webtask code.
 
 ## Bearer Auth Middleware
 
@@ -47,17 +47,17 @@ Now let's rerun the command supplying the authorization header.
 curl -X POST $(wt inspect wt7 --output json | jq .webtask_url -r) \
   -H 'authorization: Bearer mysecretkeytoken' \
   -H 'content-type: application/json' \
-  -d '{ 
-    "action":"opened", 
-    "repository":{ 
-        "full_name": "testrepo" 
-    }, 
-    "issue":{ 
-        "number":1, 
-        "url":"testurl", 
-        "title":"test issue 1", 
-        "body":"test body" 
-    } 
+  -d '{
+    "action": "opened",
+    "repository": {
+        "full_name": "testrepo"
+    },
+    "issue": {
+        "number" :1,
+        "url": "testurl",
+        "title": "test issue 1",
+        "body": "test body"
+    }
 }'
 ```
 
@@ -100,6 +100,6 @@ Finally, add a new issue to your repository and see GitHub securely send a messa
 
 ## Summary
 
-In this module, you have learned how to implement use middleware to change the behavior of your webtask without affecting the source of your tasks. Middleware is a useful way to share cross-cutting concerns among many webtasks.
+In this module, you have learned how to use middleware to change the behavior of your webtask without affecting the source of your tasks. Middleware is a useful way to share cross-cutting concerns among many webtasks.
 
 Next you'll learn how [custom programming models](custom-programming-models.md) can let you create webtasks in entirely new formats.
