@@ -29,17 +29,17 @@ Now that you have a breakpoint, you can test it out.
 Run the previous curl command that you ran before:
 
 ```bash
-curl localhost:8080 -H "content-type: application/json" -d '{ 
-    "action":"opened", 
-    "repository":{ 
-        "full_name": "testrepo" 
-    }, 
-    "issue":{ 
-        "number":1, 
-        "url":"testurl", 
-        "title":"test issue 1", 
-        "body":"test body" 
-    } 
+curl localhost:8080 -H "content-type: application/json" -d '{
+    "action": "opened",
+    "repository": {
+        "full_name": "testrepo"
+    },
+    "issue": {
+        "number": 1,
+        "url": "testurl",
+        "title": "test issue 1",
+        "body": "test body"
+    }
 }'
 ```
 
